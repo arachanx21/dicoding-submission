@@ -78,8 +78,8 @@ Berikut merupakan tahapan-tahapan dalam Data Preparation:
 
   | Jenis | Persentase | Jumlah Baris |
   | --- | ----- | ------ |
-  | Train | 80% | 718 |
-  | Test | 20% | 180 |
+  | Train | 80% | 752 |
+  | Test | 20% | 189 |
 
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 

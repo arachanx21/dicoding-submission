@@ -27,7 +27,7 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 | --- | ----- | ------ | ------ |
-| Nama | Jenis | Keterangan| Variabel |
+| Nama | Jenis | Keterangan | Variabel |
 |Cement  Feature |Continuous|kg/m^3|Dependent|   
 |Blast Furnace Slag|Feature|kg/m^3|Dependent|   
 |Fly Ash  Feature|Continuous|kg/m^3|Dependent|
@@ -38,8 +38,6 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 |Age  Feature| Integer|kg/m^3|Dependent|
 | Concrete compressive strength | Target | MPa | Independent |
 | Temperature | Numerik Kontinu | Suhu dalam derajat Celsius | Dependent |
-| --- | ----- | ------ | ------ |
-
 
 ### Exploratory Data Analysis
 ### Univariate

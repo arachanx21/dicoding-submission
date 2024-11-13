@@ -43,7 +43,7 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 ### Univariate
 Menggunakan 1.5xIQR rule, ditemukan 4 variabel mengandung outlier data, diantaranya:
 
-![Outlier data](https://github.com/user-attachments/assets/aacd855c-8103-4fb9-8a11-a7ae4bf0ad6b)
+![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers.png)
 
 
 Weather type merupakan variabel yang menjadi target pada proyek ini. Proyek ini menggunakan balanced dataset sehingga hal ini membantu mencegah overfitting pada kelas mayoritas selama pengembangan model machine learning sebab model tidak akan terlalu terfokus pada kelas mayoritas dan mengabaikan kelas minoritas.

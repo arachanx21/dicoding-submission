@@ -1,33 +1,42 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Ahmad Chandra
 
 ## Domain Proyek
-
-Cuaca memainkan peran penting dalam kehidupan sehari-hari manusia. Prediksi cuaca yang akurat sangat penting untuk berbagai sektor, mulai dari pertanian, transportasi, hingga perencanaan bencana karena dapat memperkecil dampak yang terjadi akibat keadaan cuaca yang tidak menentu. Dalam beberapa dekade terakhir, kemajuan teknologi informasi dan kemampuan komputasi telah membuka peluang baru untuk meningkatkan akurasi prediksi cuaca melalui penggunaan machine learning [1].
+Beton merupakan salah satu material paling penting di bidang sipil. Kekuatan kompresif beton merupakan kemampuan sebuah beton menahan stress sebelum beton tersebut mengalami deformasi. Variable ini merupakan fungsi nonlinear antara umur beton dan material-material penyusunnya. Dengan kemajuan teknologi dan komputasi, model kekuatan kompresif ini dapat dimodelkan untuk membantu memprediksi kekuatan kompresif sebuah beton.
 
 ## Business Understanding
 
 ### Problem Statements
 
 Berdasarkan latar belakang di atas, rincian masalahnya adalah 
-- Bagaimana mengolah data agar bisa masuk ke pemodelan prediksi agar meningkatkan ketepatan perkiraan guna antisipasi jenis cuaca yang akan terjadi?
-- Bagaimana membuat sistem prediksi cuaca yang dengan peforma seakurat mungkin (minimal akurasi 85%) agar sedikit kesalahan prediksi yang mengakibatkan biaya antisipasi banyak terbuangb sia-sia ?
+- Bagaimana mengolah data agar bisa masuk ke pemodelan prediksi agar meningkatkan ketepatan perkiraan kekuatan kompresif beton?
+- Bagaimana membuat sistem prediksi kekuatan kompresif beton yang dengan peforma seakurat mungkin (minimal akurasi 85%) agar sedikit kesalahan prediksi yang mengakibatkan biaya antisipasi banyak terbuangb sia-sia ?
 
 ### Goals
 
-Untuk menangani rincian masalah di atas, maka tujuan yang saya ajukan adalah membuat sistem prediksi jenis cuaca dengan akurasi minimal 85% sehingga mengerti bagaimana antisipasi yang dilakukan agar tidak menimbulkan masalah lingkungan yang lebih besar.
+Untuk menangani rincian masalah di atas, maka tujuan yang saya ajukan adalah membuat sistem prediksi kekuatan kompresif beton dengan akurasi minimal 85% sehingga mengerti bagaimana antisipasi yang dilakukan agar tidak menimbulkan masalah lingkungan yang lebih besar.
 
 ### Solution statements
 Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya sebagai berikut:
-- Membandingkan 7 algoritma sekaligus dalam bentuk tabel yang berisi metrik evaluasi.
+- Membandingkan 3 algoritma sekaligus dalam bentuk tabel yang berisi metrik evaluasi.
 - Melakukan hyperparameter tuning terhadap 1 algoritma yang memiliki nilai paling unggul di metrik evaluasi.
 
 ## Data Understanding
-Dataset yang digunakan pada proyek kali ini dibuat oleh Nikhil Narayan yang di upload ke Kaggle pada Juni 2024. Sumber dataset: [Weather Type Classification](https://www.kaggle.com/datasets/nikhil7280/weather-type-classification). Pada dataset ini terdiri dari 13200 baris dan 11 kolom data. Kondisi khusus dari data:
+Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di upload ke UCI Machine Learning Repository pada 2 Agustus 2007. Sumber dataset: [Concrete Compressive Strengths]([https://www.kaggle.com/datasets/nikhil7280/weather-type-classification](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)). Pada dataset ini terdiri dari 1030 baris dan 8 kolom data. Kondisi khusus dari data:
 - Data tidak memiliki baris atau kolom yang nilai hilang
 - Data tidak memiliki baris yang terduplikasi
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 | Nama | Jenis | Keterangan| Variabel |
+|Cement  Feature              |  Continuous   |kg/m^3|Dependent|   
+|Blast Furnace Slag           |  Feature      |kg/m^3|Dependent|   
+|Fly Ash  Feature             |  Continuous   |kg/m^3|Dependent|
+|Water  Feature               |  Continuous   |kg/m^3|Dependent|
+|Superplasticizer             |  Feature      |kg/m^3|Dependent|
+|Coarse Aggregate             |  Feature      |kg/m^3|Dependent|
+|Fine Aggregate               |  Feature      |kg/m^3|Dependent|
+|Age  Feature                 |     Integer   |kg/m^3|Dependent|
+|Concrete compressive strength|   Target      |MPa   |Independent|
+
 | --- | ----- | ------ | ------ |
 | Temperature | Numerik Kontinu | Suhu dalam derajat Celsius | Dependent |
 | Humidity | Numerik Diskrit | Persentase kelembapan | Dependent |

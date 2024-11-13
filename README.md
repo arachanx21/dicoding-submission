@@ -36,7 +36,7 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 |Coarse Aggregate|Feature|kg/m^3|Dependent|
 |Fine Aggregate|Feature|kg/m^3|Dependent|
 |Age  Feature| Integer|kg/m^3|Dependent|
-|Concrete compressive strength|Target|MPa|Independent|
+| Concrete compressive strength | Target | MPa | Independent |
 | Temperature | Numerik Kontinu | Suhu dalam derajat Celsius | Dependent |
 | --- | ----- | ------ | ------ |
 

@@ -52,7 +52,7 @@ Dataset ini tidak memiliki fitur kategorikal.
 
 ### Multivariate
 
-![corr](https://github.com/arachanx21/dicoding-submission/blob/aa1bb773e54627bbd432d11d0d945d499b53493b/Assets/confusion_matrix.png)
+![corr](https://github.com/arachanx21/dicoding-submission/blob/53b7199d750f066949c923c13d33b879943e2e6a/Assets/confusion_matrix1.png)
 
 
 Berdasarkan heatmap diatas dapat diketahui bahwa
@@ -60,15 +60,16 @@ Berdasarkan heatmap diatas dapat diketahui bahwa
 | Kolom | Korelasi | Skor | 
 | --- | ----- | ------ | 
 |  Cement  |  Positif  |   0.48  |
-|  Water  |  Negatif  |  -0.40  |
-|  Superplasticizer  | Positif  |  0.43  |
+|  Water  |  Negatif  |  -0.37  |
+|  Water - Superplasticizer  |  Negatif  | -0.64  | 
+|  Superplasticizer  | Positif  |  0.40  |
 |  Age  |  Positif  |  0.52  |
 
 
 
 ## Data Preparation
 Berikut merupakan tahapan-tahapan dalam Data Preparation:
-- Mengganti nilai data outliers menggunakan imputasi berbasis [KNN](https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html) yang mengganti dengan nilai terdekatnya
+- Menghilangkan nilai-nilai outlier yang tidak termasuk pada 1.5 x IQR Rule
 
 ![viloin plot](https://github.com/user-attachments/assets/90cae236-f7ea-49e2-984e-6f54be881ea5)
 

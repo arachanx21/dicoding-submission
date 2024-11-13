@@ -48,12 +48,11 @@ Menggunakan 1.5xIQR rule, ditemukan 4 variabel mengandung outlier data, diantara
 
 Dataset ini tidak memiliki fitur kategorikal.
 
-![download](https://github.com/user-attachments/assets/7468049f-aaff-4f25-b9e6-d64d8de448ef)
 
 
 ### Multivariate
 
-![corr]([https://github.com/user-attachments/assets/6d65021e-ef33-4213-9686-b5b05b6523db](https://github.com/arachanx21/dicoding-submission/blob/aa1bb773e54627bbd432d11d0d945d499b53493b/Assets/confusion_matrix.png))
+![corr](https://github.com/arachanx21/dicoding-submission/blob/aa1bb773e54627bbd432d11d0d945d499b53493b/Assets/confusion_matrix.png)
 
 
 Berdasarkan heatmap diatas dapat diketahui bahwa
@@ -65,9 +64,7 @@ Berdasarkan heatmap diatas dapat diketahui bahwa
 |  Superplasticizer  | Positif  |  0.43  |
 |  Age  |  Positif  |  0.52  |
 
-| Humidity - Precipitation (%) | Positif | 0.638631 |
-| Wind Speed - UV Index | Tidak ada | -0.068147 |
-| Humidity - Visibility (km) | Negatif | -0.479969 |
+
 
 ## Data Preparation
 Berikut merupakan tahapan-tahapan dalam Data Preparation:
@@ -75,26 +72,15 @@ Berikut merupakan tahapan-tahapan dalam Data Preparation:
 
 ![viloin plot](https://github.com/user-attachments/assets/90cae236-f7ea-49e2-984e-6f54be881ea5)
 
-
-- Melakukan encoding terhadap variabel-variabel kategorikal
-
-  | Kolom | Encoding | Alasan |
-  | --- | ----- | ------ |
-  | Location | Label | nilai perlu menunjukkan tingkat dataran |
-  | Cloud cover | Label | nilai perlu menunjukkan tingkat kerapatan awan di langit |
-  | Season | One hot | nilai menunjukkan tidak ada urutan khusus |
-  
-- Melakukan normalisasi data ke semua variabel menggunakan [Standar Scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) agar menyeragamkan rentang nilai setiap kolom.
-
-![describe](https://github.com/user-attachments/assets/8684b98d-4984-4a25-a9be-9b03744f6617)
-
-
 - Memisahkan data menjadi dua jenis menggunakan [Train Test Split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
+
 
   | Jenis | Persentase | Jumlah Baris |
   | --- | ----- | ------ |
-  | Train | 90% | 11880 |
-  | Test | 10% | 1320 |
+  | Train | 80% | 718 |
+  | Test | 20% | 180 |
+
+- Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 
 ## Modeling
 Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 7 metode berikut ini:

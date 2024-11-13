@@ -26,6 +26,7 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 - Data tidak memiliki baris yang terduplikasi
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
+| --- | ----- | ------ | ------ |
 | Nama | Jenis | Keterangan| Variabel |
 |Cement  Feature              |  Continuous   |kg/m^3|Dependent|   
 |Blast Furnace Slag           |  Feature      |kg/m^3|Dependent|   

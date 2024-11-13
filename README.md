@@ -28,28 +28,18 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 | --- | ----- | ------ | ------ |
 | Nama | Jenis | Keterangan| Variabel |
-|Cement  Feature              |  Continuous   |kg/m^3|Dependent|   
-|Blast Furnace Slag           |  Feature      |kg/m^3|Dependent|   
-|Fly Ash  Feature             |  Continuous   |kg/m^3|Dependent|
-|Water  Feature               |  Continuous   |kg/m^3|Dependent|
-|Superplasticizer             |  Feature      |kg/m^3|Dependent|
-|Coarse Aggregate             |  Feature      |kg/m^3|Dependent|
-|Fine Aggregate               |  Feature      |kg/m^3|Dependent|
-|Age  Feature                 |     Integer   |kg/m^3|Dependent|
-|Concrete compressive strength|   Target      |MPa   |Independent|
-
-| --- | ----- | ------ | ------ |
+|Cement  Feature |Continuous|kg/m^3|Dependent|   
+|Blast Furnace Slag|Feature|kg/m^3|Dependent|   
+|Fly Ash  Feature|Continuous|kg/m^3|Dependent|
+|Water  Feature|Continuous|kg/m^3|Dependent|
+|Superplasticizer|Feature|kg/m^3|Dependent|
+|Coarse Aggregate|Feature|kg/m^3|Dependent|
+|Fine Aggregate|Feature|kg/m^3|Dependent|
+|Age  Feature| Integer|kg/m^3|Dependent|
+|Concrete compressive strength|Target|MPa|Independent|
 | Temperature | Numerik Kontinu | Suhu dalam derajat Celsius | Dependent |
-| Humidity | Numerik Diskrit | Persentase kelembapan | Dependent |
-| Wind Speed | Numerik Kontinu | Kecepatan angin dalam kilometer per jam | Dependent |
-| Precipitation | Numerik Diskrit | Persentase curah hujan | Dependent |
-| Cloud Cover | Kategorikal Ordinal | Kondisi awan | Dependent |
-| Atmospheric Pressure | Numerik Kontinu | Tekanan atmosfer dalam hPa | Dependent |
-| UV Index | Numerik Diskrit | Kekuatan radiasi ultraviolet | Dependent |
-| Season | Kategorikal Nominal | Kondisi musim | Dependent |
-| Visibility | Numerik Kontinu | Jarak maksimum di mana objek dapat terlihat dan dikenali dengan mata telanjang | Dependent |
-| Location | Kategorikal Ordinal | Jenis lokasi | Dependent |
-| Weather Type | Kategorikal Nominal | Jenis cuaca | Independent |
+| --- | ----- | ------ | ------ |
+
 
 ### Exploratory Data Analysis
 ### Univariate

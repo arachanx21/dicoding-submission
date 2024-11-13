@@ -46,20 +46,25 @@ Menggunakan 1.5xIQR rule, ditemukan 4 variabel mengandung outlier data, diantara
 ![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers.png)
 
 
-Weather type merupakan variabel yang menjadi target pada proyek ini. Proyek ini menggunakan balanced dataset sehingga hal ini membantu mencegah overfitting pada kelas mayoritas selama pengembangan model machine learning sebab model tidak akan terlalu terfokus pada kelas mayoritas dan mengabaikan kelas minoritas.
+Dataset ini tidak memiliki fitur kategorikal.
 
 ![download](https://github.com/user-attachments/assets/7468049f-aaff-4f25-b9e6-d64d8de448ef)
 
 
 ### Multivariate
 
-![corr](https://github.com/user-attachments/assets/6d65021e-ef33-4213-9686-b5b05b6523db)
+![corr]([https://github.com/user-attachments/assets/6d65021e-ef33-4213-9686-b5b05b6523db](https://github.com/arachanx21/dicoding-submission/blob/aa1bb773e54627bbd432d11d0d945d499b53493b/Assets/confusion_matrix.png))
 
 
 Berdasarkan heatmap diatas dapat diketahui bahwa
 
 | Kolom | Korelasi | Skor | 
 | --- | ----- | ------ | 
+|  Cement  |  Positif  |   0.48  |
+|  Water  |  Negatif  |  -0.40  |
+|  Superplasticizer  | Positif  |  0.43  |
+|  Age  |  Positif  |  0.52  |
+
 | Humidity - Precipitation (%) | Positif | 0.638631 |
 | Wind Speed - UV Index | Tidak ada | -0.068147 |
 | Humidity - Visibility (km) | Negatif | -0.479969 |

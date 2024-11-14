@@ -26,18 +26,17 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 - Data tidak memiliki baris yang terduplikasi
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
+|  Nama  | Jenis  |  Keterangan  |  Variabel  |
 | --- | ----- | ------ | ------ |
-| Nama | Jenis | Keterangan | Variabel |
-|Cement  Feature |Continuous|kg/m^3|Dependent|   
-|Blast Furnace Slag|Feature|kg/m^3|Dependent|   
-|Fly Ash  Feature|Continuous|kg/m^3|Dependent|
-|Water  Feature|Continuous|kg/m^3|Dependent|
-|Superplasticizer|Feature|kg/m^3|Dependent|
-|Coarse Aggregate|Feature|kg/m^3|Dependent|
-|Fine Aggregate|Feature|kg/m^3|Dependent|
-|Age  Feature| Integer|kg/m^3|Dependent|
-| Concrete compressive strength | Target | MPa | Independent |
-| Temperature | Numerik Kontinu | Suhu dalam derajat Celsius | Dependent |
+|  Cement  Feature |  Continuous  |  kg/m^3  |  Dependent  |   
+|  Blast Furnace Slag  |  Feature  |  kg/m^3  |  Dependent  |   
+|  Fly Ash  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
+|  Water  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
+|  Superplasticizer  |  Feature  |  kg/m^3  |  Dependent  |
+|  Coarse Aggregate  |  Feature  |  kg/m^3  |  Dependent  |
+|  Fine Aggregate  |  Feature  |  kg/m^3  |  Dependent  |
+|  Age  |  Feature|  kg/m^3  |  Dependent  |
+|  Concrete compressive strength  |  Target  |  MPa  |  Independent  |
 
 ### Exploratory Data Analysis
 ### Univariate
@@ -70,9 +69,6 @@ Berdasarkan heatmap diatas dapat diketahui bahwa
 ## Data Preparation
 Berikut merupakan tahapan-tahapan dalam Data Preparation:
 - Menghilangkan nilai-nilai outlier yang tidak termasuk pada 1.5 x IQR Rule
-
-![viloin plot](https://github.com/user-attachments/assets/90cae236-f7ea-49e2-984e-6f54be881ea5)
-
 - Memisahkan data menjadi dua jenis menggunakan [Train Test Split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
 
 

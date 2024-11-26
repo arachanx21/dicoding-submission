@@ -1,15 +1,15 @@
 # Laporan Proyek Machine Learning - Ahmad Chandra
 
 ## Domain Proyek
-Beton merupakan salah satu material paling penting di bidang sipil. Kekuatan kompresif beton merupakan kemampuan sebuah beton menahan stress sebelum beton tersebut mengalami deformasi. Variable ini merupakan fungsi nonlinear antara umur beton dan material-material penyusunnya. Dengan kemajuan teknologi dan komputasi, model kekuatan kompresif ini dapat dimodelkan untuk membantu memprediksi kekuatan kompresif sebuah beton.
+Kepuasan pelanggan dalam layanan jasa sangatlah penting dalam keberlangsungan perusahaan. Kemampuan untuk dapat memprediksi kepuasan pelanggan dapat membantu perusahaan meningkatkan layanannya kepada para pelanggan. Selain itu, hal ini juga dapat membantu perusahaan mengambil keputusan berdasarkan data dalam memilih aspek yang perlu ditingkatkan terlebih dahulu berdasarkan urgensi dan pemahaman industri perusahaan. Kemampuan memprediksi ini sekarang memungkinkan karena berkembangnya machine-learning.
 
 ## Business Understanding
 
 ### Problem Statements
 
 Berdasarkan latar belakang di atas, rincian masalahnya adalah 
-- Bagaimana mengolah data agar bisa masuk ke pemodelan prediksi agar meningkatkan ketepatan perkiraan kekuatan kompresif beton?
-- Bagaimana membuat sistem prediksi kekuatan kompresif beton yang dengan peforma seakurat mungkin (minimal akurasi 85%) agar sedikit kesalahan prediksi yang mengakibatkan biaya antisipasi banyak terbuangb sia-sia ?
+- Bagaimana mengolah data agar bisa masuk ke pemodelan prediksi agar dapat meningkatkan kepuasan pelanggan?
+- Bagaimana membuat sistem prediksi kepuasan pelanggan maskapai yang dengan peforma seakurat mungkin (minimal akurasi 85%) agar sedikit kesalahan prediksi yang mengakibatkan biaya antisipasi banyak terbuang sia-sia ?
 
 ### Goals
 
@@ -21,14 +21,14 @@ Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya sebagai 
 - Melakukan hyperparameter tuning terhadap 1 algoritma yang memiliki nilai paling unggul di metrik evaluasi.
 
 ## Data Understanding
-Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di upload ke UCI Machine Learning Repository pada 2 Agustus 2007. Sumber dataset: [Concrete Compressive Strengths]([https://www.kaggle.com/datasets/nikhil7280/weather-type-classification](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)). Pada dataset ini terdiri dari 1030 baris dan 8 kolom data. Kondisi khusus dari data:
+Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](([https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey))). Pada dataset ini terdiri dari 1030 baris dan 8 kolom data. Kondisi khusus dari data:
 - Data tidak memiliki baris atau kolom yang nilai hilang
 - Data tidak memiliki baris yang terduplikasi
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 |  Nama  | Jenis  |  Keterangan  |  Variabel  |
 | --- | ----- | ------ | ------ |
-|  Cement  Feature |  Continuous  |  kg/m^3  |  Dependent  |   
+|  Gender  |  Feature |  Categorical  |  Jenis Kelamin Pelanggan  |  Dependent  |   
 |  Blast Furnace Slag  |  Feature  |  kg/m^3  |  Dependent  |   
 |  Fly Ash  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
 |  Water  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
@@ -38,6 +38,30 @@ Dataset yang digunakan pada proyek kali ini dibuat oleh I-Cheng Yeh yang di uplo
 |  Age  |  Feature|  kg/m^3  |  Dependent  |
 |  Concrete compressive strength  |  Target  |  MPa  |  Independent  |
 
+
+Gender: Gender of the passengers (Female, Male)
+Customer Type: The customer type (Loyal customer, disloyal customer)
+Age: The actual age of the passengers
+Type of Travel: Purpose of the flight of the passengers (Personal Travel, Business Travel)
+Class: Travel class in the plane of the passengers (Business, Eco, Eco Plus)
+Flight Distance: The flight distance of this journey
+Inflight wifi service: Satisfaction level of the inflight wifi service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Departure/Arrival time convenient: Satisfaction level of Departure/Arrival time convenient (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Ease of Online booking: Satisfaction level of online booking (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Gate location: Satisfaction level of Gate location (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Food and drink: Satisfaction level of Food and drink service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Online boarding: Satisfaction level of online boarding (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Seat comfort: Satisfaction level of Seat comfort (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Inflight entertainment: Satisfaction level of inflight entertainment (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+On-board service: Satisfaction level of On-board service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Leg room service: Satisfaction level of Leg room service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Baggage handling: Satisfaction level of baggage handling (1,2,3,4,5/ 1=Least Satisfied to 5=Most Satisfied)
+Checkin service: Satisfaction level of Check-in service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Inflight service: Satisfaction level of inflight service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Cleanliness: Satisfaction level of Cleanliness (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
+Departure Delay in Minutes: Minutes delayed when departure
+Arrival Delay in Minutes: Minutes delayed when arrival
+Satisfaction: /output column/ Airline satisfaction level ('satisfied', 'neutral or dissatisfied')
 ### Exploratory Data Analysis
 ### Univariate
 Menggunakan 1.5xIQR rule, ditemukan 4 variabel mengandung outlier data, diantaranya:

@@ -154,19 +154,17 @@ Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan 
 | --- | ----- | ------ |
 | n_estimators  |  50,100,200, 500  |  RandomForestClassifier  |
 | max_features  |  'sqrt', 'log2'  |  RandomForestClassifier  |
-| max_depth  |   4,5,6,7,8,None  |  RandomForestClassifier  |
+| max_depth  |   None  |  RandomForestClassifier  |
 | criterion  |  'gini', 'entropy'  |  RandomForestClassifier  |
 
 Setelah mengkombinasikan parameter-parameter yang ada sebanyak 288 kali, maka diperoleh parameter sebagai berikut
 
 | Parameter | Nilai | Modul |
 | --- | ----- | ------ |
-| k | 12 ('Temperature', 'Humidity', 'Wind Speed', 'Precipitation (%)', 'Cloud Cover', 'Atmospheric Pressure', 'UV Index', 'Visibility (km)', 'Location', 'Spring', 'Summer', 'Winter'], dtype='object') | SelectKBest |
-| learning_rate | 1.0, 0.1 | GradientBoostingClassifier|
-| criterion | 'squared_error' | GradientBoostingClassifier|
-| max_features | 'sqrt' | GradientBoostingClassifier|
-| loss | 'log_loss' | GradientBoostingClassifier|
-| max_depth | 3 | GradientBoostingClassifier|
+| n_estimators  |   200  |  RandomForestClassifier  |
+| max_features  |  'sqrt',  |  RandomForestClassifier  |
+| max_depth  |   None  |  RandomForestClassifier  |
+| criterion  |  'entropy'  |  RandomForestClassifier  |
 
 Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka diperoleh metrik performa sebagai berikut:
 
@@ -177,10 +175,10 @@ Pada proyek ini, metrik performa menggunakan rata-rata **micro** karena ingin me
 
 | Metrik | Sebelum | Skor | 
 | --- | ----- | ------ | 
-| Accuracy | 0.901515 | 0.902272 |
-| Precision | 0.901515 | 0.902272 |
-| Recall | 0.901515 | 0.902272 |
-| F1 Score | 0.901515 | 0.902272 |
+| Accuracy | 0.961669 | 0.963128 |
+| Precision | 0.970694 | 0.973783 |
+| Recall | 0.950657 | 0.950516 |
+| F1 Score | 0.960571 | 0.962009 |
 
 Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nilai yang sama semua. Untuk perbandingan sebelum dan sesudah hyperparameter bisa disimpulkan bahwa peningkatan performa tidak signifikan karena hanya bertambah 0,000757 saja.
 
@@ -189,10 +187,6 @@ Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nil
 - sudah mencapai goals yang diharapkan karena berhasil membangun model yang memiliki akurasi lebih dari 85%
 - solusi yang direncakan berdampak pada hasil karena dapat mengetahui mana model yang paling maksimal untuk dataset ini dalam tugas prediksi kategorikal
 
-Jika tidak tertampil gambarnya, mohon dibuka di https://github.com/oktaviacitra/dicoding-submission/blob/main/README.md
 
-
-**Referensi**
-[1] [Rhasyid, D. Y. L. A., Pramudita, B. A., & Istiqomah, I. (2023). Sistem Pemantauan Cuaca Berdasarkan Kecepatan Angin, Suhu dan Kelembaban Udara Berbasis Internet of Things. eProceedings of Engineering, 10(4).](https://openlibrarypublications.telkomuniversity.ac.id/index.php/engineering/article/download/20764/20289) 
 **---Ini adalah bagian akhir laporan---**
 

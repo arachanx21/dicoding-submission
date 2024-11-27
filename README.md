@@ -25,8 +25,9 @@ Lebih dari 80% pelanggan merupakan pelanggan berumur 20-60. Sehingga, pemodelan 
 
 ## Data Understanding
 Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](([https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey))). Pada dataset ini terdiri dari 103904 baris dan 25 kolom data. Kondisi khusus dari data:
-- Data tidak memiliki baris atau kolom yang nilai hilang
+- Data memiliki baris atau kolom yang nilai hilang (dilakukan pembersihan data terlebih dahulu)
 - Data tidak memiliki baris yang terduplikasi
+- Data SR dan id adalah data pribadi yang berhubungan dengan pelanggan dan tidak akan mempengaruhi pemodelan, sehingga kedua variabel tersebut tidak digunakan.
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 |  Nama  | Jenis  |  Keterangan  |  Variabel  |
@@ -76,6 +77,7 @@ Berikut merupakan tahapan-tahapan dalam Data Preparation:
 - Menghilangkan nilai-nilai outlier yang tidak termasuk pada 1.5 x IQR Rule
 
 Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan pencilan data dari data numerik menggunakan 1.5xIQR rule menghasilkan data yang relatif berimbang. Hal ini dapat mengurangi overfitting dalam pemodelan.
+
 ![Categorical_data](https://github.com/arachanx21/dicoding-submission/blob/087d0714e54b1b482c7d8ba1e8983e101a86d5e1/Assets/Satisfaction_chart.png)
 -  Melakukan encoding pada variabel-variabel categorical
   
@@ -92,8 +94,8 @@ Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan penc
 
   | Jenis | Persentase | Jumlah Baris |
   | --- | ----- | ------ |
-  | Train | 80% | 68692 |
-  | Test | 20% | 17173 |
+  | Train | 80% | 57600 |
+  | Test | 20% | 14401 |
 
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 
@@ -105,13 +107,11 @@ Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih meto
 
 | Nama | Kelebihan | Kekurangan |
 | --- | ----- | ------ |
-| Decision Tree | Mampu menangani hubungan non-linear antara fitur dan target | Struktur menjadi kompleks dan lambat untuk dibangun jika menangani data besar |
-| Random Forest | Mengurangi varians dan meningkatkan generalisasi model dengan menggabungkan prediksi dari banyak pohon | Membutuhkan banyak memori karena menghasilkan banyak decision tree |
-| Support Vector Machine | Memiliki fleksibilitas dalam menangani data kompleks karena penggunaan kernel tricks | Kurang optimal pada dataset yang tidak seimbang karena cenderung fokus pada margin yang memaksimalkan kelas mayoritas | 
 | K Nearest Neighbors	 | dapat menangani data multikelas tanpa perlu modifikasi khusus | mudah terpengaruh oleh data yang noisy dan outliers yang dapat mengurangi akurasi model |
+| Random Forest | Mengurangi varians dan meningkatkan generalisasi model dengan menggabungkan prediksi dari banyak pohon | Membutuhkan banyak memori karena menghasilkan banyak decision tree |
 | Gradient Boosting | Menghasilkan estimasi pentingnya fitur selama masa pembelajaran | Sensitif terhadap fitur-fitur yang tidak berkorelasi. | 
 | Ada Boost | Mudah beradaptasi dengan data baru dan berubah dari waktu ke waktu karena sifatnya yang iteratif | sensitif terhadap noise dan outliers karena mempengaruhi pemberian bobot yang tidak sesuai pada iterasi berikutnya| 
-| Extra Trees | lebih cepat dalam pelatihan karena membagi node berdasarkan split points yang dipilih secara acak tanpa melakukan pencarian split optimal | kurang optimal pada dataset yang tidak seimbang tanpa penyesuaian tambahan | 
+
 
 Tahapan yang dilakukan:
 - Melakukan looping for mencari algoritma machine learning dengan parameter default yang memiliki performa paling unggul dalam memprediksi kategori di dataset ini
@@ -158,11 +158,11 @@ Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan 
 | max_depth  |   None  |  RandomForestClassifier  |
 | criterion  |  'gini', 'entropy'  |  RandomForestClassifier  |
 
-Setelah mengkombinasikan parameter-parameter yang ada sebanyak 288 kali, maka diperoleh parameter sebagai berikut
+Setelah mengkombinasikan parameter-parameter yang ada sebanyak 480 kali, maka diperoleh parameter sebagai berikut
 
 | Parameter | Nilai | Modul |
 | --- | ----- | ------ |
-| n_estimators  |   200  |  RandomForestClassifier  |
+| n_estimators  |   500  |  RandomForestClassifier  |
 | max_features  |  'sqrt',  |  RandomForestClassifier  |
 | max_depth  |   None  |  RandomForestClassifier  |
 | criterion  |  'entropy'  |  RandomForestClassifier  |
@@ -176,10 +176,10 @@ Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuni
 
 | Metrik | Sebelum | Skor | 
 | --- | ----- | ------ | 
-| Accuracy | 0.961669 | 0.963128 |
-| Precision | 0.970694 | 0.973783 |
-| Recall | 0.950657 | 0.950516 |
-| F1 Score | 0.960571 | 0.962009 |
+| Accuracy | 0.960767 | 0.962155 |
+| Precision | 0.970367 | 0.972359 |
+| Recall | 0.949102 | 0.949951 |
+| F1 Score | 0.959617 | 0.961024 |
 
 Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nilai yang sama semua. Untuk perbandingan sebelum dan sesudah hyperparameter bisa disimpulkan bahwa peningkatan performa tidak signifikan karena nilai peningkatannya sangat kecil.
 
@@ -187,7 +187,4 @@ Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nil
 - solusi sudah menjawab problem statement karena telah membuat model untuk memprediksi jenis cuaca yang akan datang berdasarkan data yang ada
 - sudah mencapai goals yang diharapkan karena berhasil membangun model yang memiliki akurasi lebih dari 85%
 - solusi yang direncakan berdampak pada hasil karena dapat mengetahui mana model yang paling maksimal untuk dataset ini dalam tugas prediksi kategorikal
-
-
-**---Ini adalah bagian akhir laporan---**
 

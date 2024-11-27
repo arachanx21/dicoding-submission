@@ -97,6 +97,7 @@ Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan penc
 
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 
+
 [StandarScaling_train](https://github.com/arachanx21/dicoding-submission/blob/b0bda506f8fbafb7b56fc7d110a02c80549ffbb8/Assets/StandarScaler_train.png)
 
 ## Modeling

@@ -172,7 +172,7 @@ Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka 
 ![confusionmatrix](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/confusion_matrix.png)
 
 
-Pada proyek ini, metrik performa menggunakan rata-rata **micro** karena ingin mengetahui performa secara global dan general saja. Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuning terhadap model Gradient Boost.
+Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuning terhadap model Gradient Boost.
 
 | Metrik | Sebelum | Skor | 
 | --- | ----- | ------ | 
@@ -181,7 +181,7 @@ Pada proyek ini, metrik performa menggunakan rata-rata **micro** karena ingin me
 | Recall | 0.950657 | 0.950516 |
 | F1 Score | 0.960571 | 0.962009 |
 
-Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nilai yang sama semua. Untuk perbandingan sebelum dan sesudah hyperparameter bisa disimpulkan bahwa peningkatan performa tidak signifikan karena hanya bertambah 0,000757 saja.
+Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nilai yang sama semua. Untuk perbandingan sebelum dan sesudah hyperparameter bisa disimpulkan bahwa peningkatan performa tidak signifikan karena nilai peningkatannya sangat kecil.
 
 **Catatan:**
 - solusi sudah menjawab problem statement karena telah membuat model untuk memprediksi jenis cuaca yang akan datang berdasarkan data yang ada

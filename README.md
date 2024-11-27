@@ -97,7 +97,7 @@ Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan penc
 
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 
-[StandarScaling_train](https://github.com/arachanx21/dicoding-submission/blob/f613a933125a87af22d99a9f80cce7e49626957a/Assets/StandarScaler_train.png)
+[StandarScaling_train](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/StandarScaler_train.png)
 
 ## Modeling
 Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 7 metode berikut ini:
@@ -145,7 +145,7 @@ Proses evaluasi model pada proyek ini menggunakan 4 metrik berikut ini
 
 Hasil eksperimen semua model:
 
-![table](https://github.com/user-attachments/assets/15baf439-3002-435d-829e-f8a0872fc806)
+![table](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/Model_evaluation.png)
 
 
 Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan metode lain, sehingga untuk proses peningkatan performa menggunakan hyperparameter tuning, perlu berfokus pada algoritma Random Forest saja. Berikut merupakan parameter-parameter yang dikombinasikan supaya mendapatkan performa terbaik. *berikut merupakan konfigurasi yang digunakan dalam hyperparameter tuning menggunakan GridSearchCV*.
@@ -168,7 +168,7 @@ Setelah mengkombinasikan parameter-parameter yang ada sebanyak 288 kali, maka di
 
 Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka diperoleh metrik performa sebagai berikut:
 
-![confusionmatrix](https://github.com/user-attachments/assets/365b2438-6c75-4f2c-bc29-6839243f2423)
+![confusionmatrix](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/confusion_matrix.png)
 
 
 Pada proyek ini, metrik performa menggunakan rata-rata **micro** karena ingin mengetahui performa secara global dan general saja. Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuning terhadap model Gradient Boost.

@@ -62,7 +62,7 @@ Scale(0-5): (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfie
 ### Univariate
 Menggunakan 1.5xIQR rule, ditemukan 3 variabel numerikal mengandung outlier data, diantaranya:
 
-![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers.png)
+![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers2.png)
 
 
 ### Multivariate

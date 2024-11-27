@@ -20,88 +20,84 @@ Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya sebagai 
 - Membandingkan 3 algoritma sekaligus dalam bentuk tabel yang berisi metrik evaluasi.
 - Melakukan hyperparameter tuning terhadap 1 algoritma yang memiliki nilai paling unggul di metrik evaluasi.
 
+## Batasan Problem
+Lebih dari 80% pelanggan merupakan pelanggan berumur 20-60. Sehingga, pemodelan digunakan difokuskan pada pelanggan dengan rentang umur 20-60.
+
 ## Data Understanding
-Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](([https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey))). Pada dataset ini terdiri dari 1030 baris dan 8 kolom data. Kondisi khusus dari data:
+Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](([https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey))). Pada dataset ini terdiri dari 103904 baris dan 25 kolom data. Kondisi khusus dari data:
 - Data tidak memiliki baris atau kolom yang nilai hilang
 - Data tidak memiliki baris yang terduplikasi
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 |  Nama  | Jenis  |  Keterangan  |  Variabel  |
 | --- | ----- | ------ | ------ |
-|  Gender  |  Feature |  Categorical  |  Jenis Kelamin Pelanggan  |  Dependent  |   
-|  Blast Furnace Slag  |  Feature  |  kg/m^3  |  Dependent  |   
-|  Fly Ash  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
-|  Water  Feature  |  Continuous  |  kg/m^3  |  Dependent  |
-|  Superplasticizer  |  Feature  |  kg/m^3  |  Dependent  |
-|  Coarse Aggregate  |  Feature  |  kg/m^3  |  Dependent  |
-|  Fine Aggregate  |  Feature  |  kg/m^3  |  Dependent  |
-|  Age  |  Feature|  kg/m^3  |  Dependent  |
-|  Concrete compressive strength  |  Target  |  MPa  |  Independent  |
+|  Gender  |  Kategorikal  | Gender of the passengers (Female, Male)  |  Dependent  |
+|  Customer Type  |  Kategorikal  | The customer type (Loyal customer, disloyal customer)  |  Dependent  |
+|  Age  |  Continous  | The actual age of the passengers  |  Dependent  |
+|  Type of Travel  |  Kategorikal  | Purpose of the flight of the passengers (Personal Travel, Business Travel)  |  Dependent  |
+|  Class  |  Kategorikal  | Travel class in the plane of the passengers (Business, Eco, Eco Plus)  |  Dependent  |
+|  Flight Distance  |  Continous  | The flight distance of this journey  |  Dependent  |
+|  Inflight wifi service  |  Kategorikal  | Satisfaction level of the inflight wifi service Scale(0-5)  |  Dependent  |
+|  Departure/Arrival time convenient  |  Kategorikal  | Satisfaction level of Departure/Arrival time convenient Scale(0-5)  |  Dependent  |
+|  Ease of Online booking  |  Kategorikal  | Satisfaction level of online booking Scale(0-5)  |  Dependent  |
+|  Gate location  |  Kategorikal  | Satisfaction level of Gate location Scale(0-5)  |  Dependent  |
+|  Food and drink  |  Kategorikal  | Satisfaction level of Food and drink service Scale(0-5)  |  Dependent  |
+|  Online boarding  |  Kategorikal  | Satisfaction level of online boarding Scale(0-5)  |  Dependent  |
+|  Seat comfort  |  Kategorikal  | Satisfaction level of Seat comfort Scale(0-5)  |  Dependent  |
+|  Inflight entertainment  |  Kategorikal  | Satisfaction level of inflight entertainment Scale(0-5)  |  Dependent  |
+|  On-board service  |  Kategorikal  | Satisfaction level of On-board service Scale(0-5)  |  Dependent  |
+|  Leg room service  |  Kategorikal  | Satisfaction level of Leg room service Scale(0-5)  |  Dependent  |
+|  Baggage handling  |  Kategorikal  | Satisfaction level of baggage handling (1,2,3,4,5/ 1=Least Satisfied to 5=Most Satisfied)  |  Dependent  |
+|  Checkin service  |  Kategorikal  | Satisfaction level of Check-in service Scale(0-5)  |  Dependent  |
+|  Inflight service  |  Kategorikal  | Satisfaction level of inflight service Scale(0-5)  |  Dependent  |
+|  Cleanliness  |  Kategorikal  | Satisfaction level of Cleanliness Scale(0-5)  |  Dependent  |
+|  Departure Delay in Minutes  |  Continous  | Minutes delayed when departure  |  Dependent  |
+|  Arrival Delay in Minutes  |  Continous  | Minutes delayed when arrival  |  Dependent  |
+|  Satisfaction  |  Kategorikal  | Airline satisfaction level ('satisfied', 'neutral or dissatisfied')  | Independent  |
 
+Keterangan: 
+Scale(0-5): (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
 
-Gender: Gender of the passengers (Female, Male)
-Customer Type: The customer type (Loyal customer, disloyal customer)
-Age: The actual age of the passengers
-Type of Travel: Purpose of the flight of the passengers (Personal Travel, Business Travel)
-Class: Travel class in the plane of the passengers (Business, Eco, Eco Plus)
-Flight Distance: The flight distance of this journey
-Inflight wifi service: Satisfaction level of the inflight wifi service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Departure/Arrival time convenient: Satisfaction level of Departure/Arrival time convenient (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Ease of Online booking: Satisfaction level of online booking (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Gate location: Satisfaction level of Gate location (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Food and drink: Satisfaction level of Food and drink service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Online boarding: Satisfaction level of online boarding (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Seat comfort: Satisfaction level of Seat comfort (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Inflight entertainment: Satisfaction level of inflight entertainment (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-On-board service: Satisfaction level of On-board service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Leg room service: Satisfaction level of Leg room service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Baggage handling: Satisfaction level of baggage handling (1,2,3,4,5/ 1=Least Satisfied to 5=Most Satisfied)
-Checkin service: Satisfaction level of Check-in service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Inflight service: Satisfaction level of inflight service (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Cleanliness: Satisfaction level of Cleanliness (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfied)
-Departure Delay in Minutes: Minutes delayed when departure
-Arrival Delay in Minutes: Minutes delayed when arrival
-Satisfaction: /output column/ Airline satisfaction level ('satisfied', 'neutral or dissatisfied')
 ### Exploratory Data Analysis
 ### Univariate
-Menggunakan 1.5xIQR rule, ditemukan 4 variabel mengandung outlier data, diantaranya:
+Menggunakan 1.5xIQR rule, ditemukan 3 variabel numerikal mengandung outlier data, diantaranya:
 
 ![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers.png)
 
 
-Dataset ini tidak memiliki fitur kategorikal.
-
-
-
 ### Multivariate
 
-![corr](https://github.com/arachanx21/dicoding-submission/blob/53b7199d750f066949c923c13d33b879943e2e6a/Assets/confusion_matrix1.png)
-
-
-Berdasarkan heatmap diatas dapat diketahui bahwa
-
-| Kolom | Korelasi | Skor | 
-| --- | ----- | ------ | 
-|  Cement  |  Positif  |   0.48  |
-|  Water  |  Negatif  |  -0.37  |
-|  Water - Superplasticizer  |  Negatif  | -0.64  | 
-|  Superplasticizer  | Positif  |  0.40  |
-|  Age  |  Positif  |  0.52  |
-
+Multivariative analysis tidak dilakukan karena hubungan data kontinu dengan variabel target kategorikal memiliki hubungan yang ambigu.
 
 
 ## Data Preparation
 Berikut merupakan tahapan-tahapan dalam Data Preparation:
+
 - Menghilangkan nilai-nilai outlier yang tidak termasuk pada 1.5 x IQR Rule
+
+Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan pencilan data dari data numerik menggunakan 1.5xIQR rule menghasilkan data yang relatif berimbang. Hal ini dapat mengurangi overfitting dalam pemodelan.
+![Categorical_data](https://github.com/arachanx21/dicoding-submission/blob/087d0714e54b1b482c7d8ba1e8983e101a86d5e1/Assets/Satisfaction_chart.png)
+-  Melakukan encoding pada variabel-variabel categorical
+  
+  |  Kolom  |  Encoding  |  Alasan  |
+  | ------- | ------ | ------ |
+  |  'Gender'  | One-hot Encoding  | nilai menunjukkan tidak ada urutan khusus  |
+  |  'Type_of_Travel'  | One-hot Encoding  | nilai menunjukkan tidak ada urutan khusus  |
+  |  'Class'  | One-hot Encoding  | nilai menunjukkan tidak ada urutan khusus  |
+  |  'Customer_Type'  | One-hot Encoding  | nilai menunjukkan tidak ada urutan khusus  |
+  |  'Satisfaction'  | Label Encoding  | nilai perlu menunjukkan puas/tidaknya pelanggan  |
+
 - Memisahkan data menjadi dua jenis menggunakan [Train Test Split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
 
 
   | Jenis | Persentase | Jumlah Baris |
   | --- | ----- | ------ |
-  | Train | 80% | 752 |
-  | Test | 20% | 189 |
+  | Train | 80% | 68692 |
+  | Test | 20% | 17173 |
 
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
+
+[StandarScaling_train](https://github.com/arachanx21/dicoding-submission/blob/f613a933125a87af22d99a9f80cce7e49626957a/Assets/StandarScaler_train.png)
 
 ## Modeling
 Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 7 metode berikut ini:
@@ -123,35 +119,20 @@ Tahapan yang dilakukan:
 - Seleksi fitur dan pencarian parameter terbaik untuk algoritma machine learning dilakukan secara bersamaan menggunakan [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html).
 
 Berikut merupakan penjelasan setiap parameter yang digunakan:
-1. Decision Tree
-- criterion='gini', teknik pemisahan data untuk kategorisasi, 'gini' sering kali lebih cepat dalam komputasi
-- max_depth=None, kedalaman maksimum pohon, karena tidak membatasi kondisi yang terbagi untuk bisa sedetail mungkin
-- min_samples_split=2, jumlah minimum sampel yang diperlukan untuk membagi node internal, karena 2 mengindikasi kondisi yang detail dan tidak bisa dibagi lagi.
+1. K Nearest Neighbors
+- n_neighbors=15, menentukan jumlah tetangga terdekat yang akan digunakan untuk melakukan prediksi, outlier kurang bisa mempengaruhi hasil prediksi karena jika n_neighbors=1 bisa menyebabkan overfitting.
+- metric='minkowski', perhitungan jarak mempengaruhi cara jarak dihitung dan bagaimana kesamaan antara titik data diukur, metrik jarak lebih sensitif terhadap perbedaan dalam skala fitur.
+- weights='uniform', menentukan apakah semua tetangga memiliki bobot yang sama atau apakah tetangga yang lebih dekat memiliki pengaruh lebih besar, untuk menghindari overfitting bisa memberikan bobot yang sama terhadap semua tetangga terdekat
+
 2. Random Forest
 - n_estimators=100, jumlah pohon keputusan dalam hutan, 100 karena angka besar tapi tidak terlalu membebankan waktu komputasi
 - max_depth=None, kedalaman maksimum pohon, karena tidak membatasi kondisi yang terbagi untuk bisa sedetail mungkin
 - max_features='sqrt', jumlah fitur maksimum yang dipertimbangkan untuk membagi setiap node,  dengan mempertimbangkan hanya akar kuadrat dari total fitur pada setiap split, setiap pohon dalam hutan cenderung melihat subset fitur yang berbeda
-3. Support Vector Machine
-- C=1.0, pengontrol seberapa banyak kesalahan yang diizinkan dalam model yang mempengaruhi trade-off antara bias dan varians, memberikan keseimbangan yang wajar antara memaksimalkan margin pemisah dan meminimalkan kesalahan klasifikasi
-- kernel='rbf', menentukan ruang fitur di mana data akan diproyeksikan untuk menemukan hyperplane yang memisahkan kelas, rbf memiliki mekanisme menangani data yang tidak dapat dipisahkan secara linear dengan memproyeksikannya ke ruang dimensi yang lebih tinggi
-- gamma='scale', menentukan seberapa jauh pengaruh dari satu contoh pelatihan, memiliki mekanisme menyesuaikan nilai gamma berdasarkan jumlah fitur dalam data.
-4. K Nearest Neighbors
-- n_neighbors=5, menentukan jumlah tetangga terdekat yang akan digunakan untuk melakukan prediksi, outlier kurang bisa mempengaruhi hasil prediksi karena jika n_neighbors=1 bisa menyebabkan overfitting.
-- metric='minkowski', perhitungan jarak mempengaruhi cara jarak dihitung dan bagaimana kesamaan antara titik data diukur, metrik jarak lebih sensitif terhadap perbedaan dalam skala fitur.
-- weights='uniform', menentukan apakah semua tetangga memiliki bobot yang sama atau apakah tetangga yang lebih dekat memiliki pengaruh lebih besar, untuk menghindari overfitting bisa memberikan bobot yang sama terhadap semua tetangga terdekat
-5. Gradient Boosting
-- max_features=None, jumlah fitur maksimum yang dipertimbangkan untuk membagi setiap node,  untuk tidak membatasi fitue sebanyak-banyak dipertimbangkan dalam membagi setiap node
-- learning_rate=0.1, laju pembelajaran, 0.1 agar pembelajaran semakin teliti
-- loss='log_loss', mengukur seberapa baik probabilitas yang diprediksi sesuai dengan label kelas yang sebenarnya, diperuntukkan untuk klasifikasi
-- max_depth=3, kedalaman maksimum dalam membagi node, karena memelurkan komputasi yang cepat dan analisis model yang general
-6. Ada Boost
+
+3. Ada Boost
 - learning_rate=0.1, laju pembelajaran, 0.1 agar pembelajaran semakin teliti
 - n_estimators=50, jumlah pohon keputusan dalam hutan, berbeda dengan random forest memiliki kinerja lebih cepat, ada boost lebih kompleks sehingga memilih 50 untuk berada di tengah-tengah antara analisis model secara detail dan general
 - estimator=None, model dasar, tidak menggunakan model dasar yang lain untuk bisa mempercepat komputasi
-7. Extra Trees
-- n_estimators=100, jumlah pohon keputusan dalam hutan, 100 karena angka besar tapi tidak terlalu membebankan waktu komputasi
-- max_features='sqrt', jumlah fitur maksimum yang dipertimbangkan untuk membagi setiap node,  dengan mempertimbangkan hanya akar kuadrat dari total fitur pada setiap split, setiap pohon dalam hutan cenderung melihat subset fitur yang berbeda
-- max_depth=None, kedalaman maksimum pohon, karena tidak membatasi kondisi yang terbagi untuk bisa sedetail mungkin
 
 ## Evaluation
 Proses evaluasi model pada proyek ini menggunakan 4 metrik berikut ini
@@ -168,16 +149,14 @@ Hasil eksperimen semua model:
 ![table](https://github.com/user-attachments/assets/15baf439-3002-435d-829e-f8a0872fc806)
 
 
-Gradient boost mendapatkan nilai performa yang unggul dibanding dengan metode lain, sehingga untuk proses peningkatan performa menggunakan hyperparameter tuning, perlu berfokus pada Gradient boost saja. Berikut merupakan parameter-parameter yang dikombinasikan supaya mendapatkan performa terbaik. *berikut merupakan konfigurasi yang digunakan dalam hyperparameter tuning menggunakan GridSearchCV*.
+Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan metode lain, sehingga untuk proses peningkatan performa menggunakan hyperparameter tuning, perlu berfokus pada algoritma Random Forest saja. Berikut merupakan parameter-parameter yang dikombinasikan supaya mendapatkan performa terbaik. *berikut merupakan konfigurasi yang digunakan dalam hyperparameter tuning menggunakan GridSearchCV*.
 
 | Parameter | Nilai | Modul |
 | --- | ----- | ------ |
-| k | 10, 11, 12, 13 | SelectKBest |
-| learning_rate | 1.0, 0.1 | GradientBoostingClassifier|
-| criterion | 'friedman_mse', 'squared_error' | GradientBoostingClassifier|
-| max_features | 'sqrt', 'log2' | GradientBoostingClassifier|
-| loss | 'log_loss', 'exponential' | GradientBoostingClassifier|
-| max_depth | 3, 4 | GradientBoostingClassifier|
+| n_estimators  |  50,100,200, 500  |  RandomForestClassifier  |
+| max_features  |  'sqrt', 'log2'  |  RandomForestClassifier  |
+| max_depth  |   4,5,6,7,8,None  |  RandomForestClassifier  |
+| criterion  |  'gini', 'entropy'  |  RandomForestClassifier  |
 
 Setelah mengkombinasikan parameter-parameter yang ada sebanyak 288 kali, maka diperoleh parameter sebagai berikut
 
@@ -190,7 +169,7 @@ Setelah mengkombinasikan parameter-parameter yang ada sebanyak 288 kali, maka di
 | loss | 'log_loss' | GradientBoostingClassifier|
 | max_depth | 3 | GradientBoostingClassifier|
 
-Setelah menerapkan parameter-parameter tersebut dalam model Gradient Boost, maka diperoleh metrik performa sebagai berikut:
+Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka diperoleh metrik performa sebagai berikut:
 
 ![confusionmatrix](https://github.com/user-attachments/assets/365b2438-6c75-4f2c-bc29-6839243f2423)
 

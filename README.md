@@ -13,7 +13,7 @@ Berdasarkan latar belakang di atas, rincian masalahnya adalah
 
 ### Goals
 
-Untuk menangani rincian masalah di atas, maka tujuan yang saya ajukan adalah membuat sistem prediksi kekuatan kompresif beton dengan akurasi minimal 85% sehingga mengerti bagaimana antisipasi yang dilakukan agar tidak menimbulkan masalah lingkungan yang lebih besar.
+Untuk menangani rincian masalah di atas, maka tujuan yang saya ajukan adalah membuat sistem prediksi kepuasan pelanggan maskapai dengan akurasi minimal 85% sehingga mengerti bagaimana antisipasi yang dilakukan agar tidak menimbulkan masalah lingkungan yang lebih besar.
 
 ### Solution statements
 Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya sebagai berikut:

@@ -107,10 +107,9 @@ Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih meto
 
 | Nama | Kelebihan | Kekurangan |
 | --- | ----- | ------ |
-| K Nearest Neighbors	 | dapat menangani data multikelas tanpa perlu modifikasi khusus | mudah terpengaruh oleh data yang noisy dan outliers yang dapat mengurangi akurasi model |
-| Random Forest | Mengurangi varians dan meningkatkan generalisasi model dengan menggabungkan prediksi dari banyak pohon | Membutuhkan banyak memori karena menghasilkan banyak decision tree |
-| Gradient Boosting | Menghasilkan estimasi pentingnya fitur selama masa pembelajaran | Sensitif terhadap fitur-fitur yang tidak berkorelasi. | 
-| Ada Boost | Mudah beradaptasi dengan data baru dan berubah dari waktu ke waktu karena sifatnya yang iteratif | sensitif terhadap noise dan outliers karena mempengaruhi pemberian bobot yang tidak sesuai pada iterasi berikutnya| 
+| K Nearest Neighbors	 | sederhana, adaptif, fleksibel dengan metrik yang bervariasi | sensitif dengan jumlah n tetangga dan fitur yang irelevan, bias terhadap kelas mayoritas, dan sulit dengan dimensi yang tinggi  |
+| Random Forest | Akurat, model toleran dengan overfitting dan outliers, dan dapat menampung data yang besar  | Membutuhkan banyak memori karena menghasilkan banyak decision tree |
+| Ada Boost | sederhana, adaptif, toleran terhadap overfitting  | sensitif terhadap noise dan outliers karena mempengaruhi pemberian bobot yang tidak sesuai pada iterasi berikutnya| 
 
 
 Tahapan yang dilakukan:

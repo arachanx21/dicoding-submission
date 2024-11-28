@@ -24,7 +24,7 @@ Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya sebagai 
 Lebih dari 80% pelanggan merupakan pelanggan berumur 20-60. Sehingga, pemodelan digunakan difokuskan pada pelanggan dengan rentang umur 20-60.
 
 ## Data Understanding
-Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](([https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey))). Pada dataset ini terdiri dari 103904 baris dan 25 kolom data. Kondisi khusus dari data:
+Dataset yang digunakan pada proyek kali ini dibuat oleh Delta_Sierra452  yang di upload ke Kaggle. Sumber dataset: [Airline Passenger Satisfaction Predictive Analysis](https://www.kaggle.com/datasets/deltasierra452/airline-pax-satisfaction-survey). Pada dataset ini terdiri dari 103904 baris dan 25 kolom data. Kondisi khusus dari data:
 - Data memiliki baris atau kolom yang nilai hilang (dilakukan pembersihan data terlebih dahulu)
 - Data tidak memiliki baris yang terduplikasi
 - Data SR dan id adalah data pribadi yang berhubungan dengan pelanggan dan tidak akan mempengaruhi pemodelan, sehingga kedua variabel tersebut tidak digunakan.

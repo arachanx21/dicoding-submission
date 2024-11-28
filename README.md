@@ -61,9 +61,10 @@ Scale(0-5): (0,1,2,3,4,5/ 0=Not Applicable; 1=Least Satisfied to 5=Most Satisfie
 
 ### Exploratory Data Analysis
 ### Univariate
-Menggunakan 1.5xIQR rule, ditemukan 3 variabel numerikal mengandung outlier data, diantaranya:
+Menggunakan 1.5xIQR rule, ditemukan 3 variabel numerikal mengandung outl
+ier data, diantaranya:
+![image](https://github.com/user-attachments/assets/eba71836-c4dc-42d0-84ac-5c2d0aee806b)
 
-![Outlier data](https://github.com/arachanx21/dicoding-submission/blob/origin/Assets/outliers2.png)
 
 
 ### Multivariate
@@ -78,7 +79,8 @@ Berikut merupakan tahapan-tahapan dalam Data Preparation:
 
 Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan pencilan data dari data numerik menggunakan 1.5xIQR rule menghasilkan data yang relatif berimbang. Hal ini dapat mengurangi overfitting dalam pemodelan.
 
-![Categorical_data](https://github.com/arachanx21/dicoding-submission/blob/087d0714e54b1b482c7d8ba1e8983e101a86d5e1/Assets/Satisfaction_chart.png)
+![image](https://github.com/user-attachments/assets/0ecc17b8-d821-48d7-a068-23eaad6cfc04)
+
 -  Melakukan encoding pada variabel-variabel categorical
   
   |  Kolom  |  Encoding  |  Alasan  |
@@ -100,7 +102,7 @@ Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan penc
 - Melakukan pengskalaan standar (Standard Scaler) data pada masing-masing data training dan test secara terpisah. [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 
 
-![StandarScaling](https://github.com/arachanx21/dicoding-submission/blob/b0bda506f8fbafb7b56fc7d110a02c80549ffbb8/Assets/StandarScaler_train.png)
+<img width="727" alt="StandardScaling" src="https://github.com/user-attachments/assets/d12795c3-39b7-48bc-b343-55d9b1c6943a">
 
 ## Modeling
 Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 7 metode berikut ini:
@@ -145,8 +147,9 @@ Proses evaluasi model pada proyek ini menggunakan 4 metrik berikut ini
 | F1 Score | mengukur keseimbangan antara precision dan recall | $`2 * ((precision * recall)/(precision+recall))`$ |
 
 Hasil eksperimen semua model:
+<img width="602" alt="Screenshot 2024-11-28 at 17 16 36" src="https://github.com/user-attachments/assets/506fe1b2-d866-45ef-80a3-cc4cdd7c14f1">
 
-![table](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/Model_evaluation.png)
+
 
 
 Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan metode lain, sehingga untuk proses peningkatan performa menggunakan hyperparameter tuning, perlu berfokus pada algoritma Random Forest saja. Berikut merupakan parameter-parameter yang dikombinasikan supaya mendapatkan performa terbaik. *berikut merupakan konfigurasi yang digunakan dalam hyperparameter tuning menggunakan GridSearchCV*.
@@ -169,7 +172,8 @@ Setelah mengkombinasikan parameter-parameter yang ada sebanyak 80 kali, maka dip
 
 Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka diperoleh metrik performa sebagai berikut:
 
-![confusionmatrix](https://github.com/arachanx21/dicoding-submission/blob/c144833dce97ba2ac66529447f21c4cae55978f8/Assets/confusion_matrix.png)
+![image](https://github.com/user-attachments/assets/d1736191-bdc8-420a-8608-6251e0f2556f)
+
 
 
 Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuning terhadap model Gradient Boost.

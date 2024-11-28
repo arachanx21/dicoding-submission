@@ -127,6 +127,7 @@ Berikut merupakan penjelasan setiap parameter yang digunakan:
 - n_estimators=100, jumlah pohon keputusan dalam hutan, 100 karena angka besar tapi tidak terlalu membebankan waktu komputasi
 - max_depth=None, kedalaman maksimum pohon, karena tidak membatasi kondisi yang terbagi untuk bisa sedetail mungkin
 - max_features='sqrt', jumlah fitur maksimum yang dipertimbangkan untuk membagi setiap node,  dengan mempertimbangkan hanya akar kuadrat dari total fitur pada setiap split, setiap pohon dalam hutan cenderung melihat subset fitur yang berbeda
+- criterion="gini", fungsi ini mengukur kualitas dari split.  “gini” menggunakan Gini impurity sedangkan “log_loss” dan “entropy” untuk shannon information gain.
 
 3. Ada Boost
 - learning_rate=0.1, laju pembelajaran, 0.1 agar pembelajaran semakin teliti
@@ -157,11 +158,11 @@ Algoritma Random Forest mendapatkan nilai performa yang unggul dibanding dengan 
 | max_depth  |   None  |  RandomForestClassifier  |
 | criterion  |  'gini', 'entropy'  |  RandomForestClassifier  |
 
-Setelah mengkombinasikan parameter-parameter yang ada sebanyak 480 kali, maka diperoleh parameter sebagai berikut
+Setelah mengkombinasikan parameter-parameter yang ada sebanyak 80 kali, maka diperoleh parameter sebagai berikut
 
 | Parameter | Nilai | Modul |
 | --- | ----- | ------ |
-| n_estimators  |   500  |  RandomForestClassifier  |
+| n_estimators  |   200  |  RandomForestClassifier  |
 | max_features  |  'sqrt',  |  RandomForestClassifier  |
 | max_depth  |   None  |  RandomForestClassifier  |
 | criterion  |  'entropy'  |  RandomForestClassifier  |
@@ -175,10 +176,10 @@ Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuni
 
 | Metrik | Sebelum | Skor | 
 | --- | ----- | ------ | 
-| Accuracy | 0.960767 | 0.962155 |
-| Precision | 0.970367 | 0.972359 |
-| Recall | 0.949102 | 0.949951 |
-| F1 Score | 0.959617 | 0.961024 |
+| Accuracy | 0.960905 | 0.961530 |
+| Precision |0.969561 | 0.971367 |
+| Recall | 0.950233 | 0.949668 |
+| F1 Score | 0.959800 | 0.960395 |
 
 Proyek ini menggunakan balanced dataset sehingga metrik performa menunjukkan nilai yang sama semua. Untuk perbandingan sebelum dan sesudah hyperparameter bisa disimpulkan bahwa peningkatan performa tidak signifikan karena nilai peningkatannya sangat kecil.
 

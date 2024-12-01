@@ -174,7 +174,7 @@ Setelah menerapkan parameter-parameter tersebut dalam model Random Forest, maka 
 
 ![image](https://github.com/user-attachments/assets/d1736191-bdc8-420a-8608-6251e0f2556f)
 
-
+berdasarkan confusion matrix, model memiliki akurasi 97% mengidentifikasi penumpang yang netral dan tidak puas dan 95% mengidentifikasi penumpang yang puas. Dengan ini model dapat digunakan untuk mempelajari aspek mana yang perlu ditingkatkan oleh maskapai dengan memberikan data-data dengan fitur-fitur terkontrol kepada model.
 
 Berikut merupakan perbandingan sebelum dan sesudah dilakukan hyperparameter tuning terhadap model Gradient Boost.
 

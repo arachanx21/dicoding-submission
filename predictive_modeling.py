@@ -17,20 +17,41 @@ print('Data source import complete.')
 data = pd.read_csv(os.path.join(dir,os.listdir(dir)[0]))
 data
 
+"""Berdasarkan data di atas, terdapat 103904 baris data dengan 25 kolom."""
+
 #menggunakan environment kaggle
 import pandas as pd
 data=pd.read_csv("/kaggle/input/airline-pax-satisfaction-survey/airline_clnd.csv")
 data
 
-"""Data mentah dicek terlebih dahulu apakah terdapat data yang bernilai kosong dengan fungsi built-in pandas dropna."""
+data.info()
+
+"""Berdasarkan data di atas, variabel Gender, Customer_type, Type_of_Travel, Class, dan satisfaction bertipe **object**, sedangkan Arrival_Delay_in_Minutes bertipe **float64** dan sisanya bertipe **int64**."""
+
+data.describe()
+
+"""Berdasarkan data di atas, tidak terlihat bahwa terdapat missing value karena range angka-angka yang terdapat di data sesuai dengan spesifikasi data di dokumentasi data set. Namun, data dengan nilai kosong masih perlu diidentifikasi dengan mengecek apakah terdapat data kosong pada setiap kolom."""
+
+print("number of missing data:")
+for i in data.columns:
+  print(i,"\t:",data[i].loc[data[i].isnull()].shape[0])
+
+"""Berdasarkan data di atas, terdapat 310 data kosong di variabel Arrival_Delay_in_Minutes.
+
+Data dengan nilai kosong dihilangkan dengan fungsi built-in pandas dropna.
+"""
 
 data = data.dropna()
 data
 
 """Terdapat 310 data yang kosong. Setelah data kosong dihilangkan, dataset dicek kembali apakah terdapat data-data duplikat menggunakan fungsi built-in pandas drop_duplicates()
 
-<h4>Mencoba untuk menghapus data duplikat(jika ada)</h4>
+<h4>Memeriksa apakah dataset memiliki data duplikat</h4>
 """
+
+data.duplicated().sum()
+
+"""Berdasarkan hasil di atas, tidak ada data duplikat dalam data set."""
 
 data = data.drop_duplicates()
 data
@@ -42,8 +63,11 @@ Kolom SR dan ID adalah kolom yang berhubungan dengan identitas pelanggan. Hal in
 
 data=data.drop("SR",axis=1)
 data=data.drop("id",axis=1)
+data
 
-"""<h2>Data Exploration</h2>
+"""Sekarang dataset memiliki 103904 baris dan 23 variabel.
+
+<h2>Data Exploration</h2>
 <h5>Mengelompokkan Data berdasarkan group umur</h5>
 """
 
@@ -189,7 +213,8 @@ X_train[numerical_features] = scaler.transform(X_train.loc[:, numerical_features
 X_train[numerical_features].describe().round(2)
 
 """<h3>Model Development</h3>
-Dilakukan 3 fitting model: KNN, Random Forest dan AdaBoosting. Karena pemodelan ini merupakan pemodelan yang memprediksi apakah pelanggan puas dengan layanan maskapai, pemodelan klasifikasi dipilih sebagai model prekdisi.
+<p>Dilakukan 3 fitting model: KNN, Random Forest dan AdaBoosting. Karena pemodelan ini merupakan pemodelan yang memprediksi apakah pelanggan puas dengan layanan maskapai, pemodelan klasifikasi dipilih sebagai model prekdisi.<p>
+<p>Model <b>klasifikasi</b> ini memprediksi suatu nilai diskrit (puas atau tidak puas) berdarkan vektor pada fitur-fitur.</p>
 """
 
 # Siapkan dataframe untuk analisis model
@@ -197,7 +222,8 @@ models = pd.DataFrame(index=['train_acc', 'test_acc'],
                       columns=['KNN', 'RandomForest', 'Boosting'])
 
 """<h3>K-Nearest Neighbor(KNN)</h3>
-Algoritma KNN membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat untuk memprediksi. Parameter utama dalam algoritma ini adalah n_neighbors, yaitu jumlah tetangga yang akan dibandingkan untuk mengklasifikasikan hasil prediksi.
+<p>Algoritma KNN membandingkan jarak satu sampel data ke sampel data pelatihan lain dengan memilih sejumlah k tetangga terdekat untuk memprediksi variabel objek. </p>
+<p>Parameter utama dalam algoritma ini adalah n_neighbors, yaitu jumlah tetangga yang akan dibandingkan untuk mengklasifikasikan hasil prediksi.</p>
 """
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -212,7 +238,7 @@ print(models)
 """akurasi training menggunakan algoritma KNN memberikan hasil yang sangat baik (93.3%)
 
 <h3>Random forest</h3>
-Algoritma Random forest menggunakan beberapa model decision tree (pengambilan keputusan berdasarkan kondisional) yang independen dan digabung menjadi satu kesatuan (bagging). Algoritma decision tree memprediksi suatu hasil berdasarkan kondisi-kondisi fitur. Algoritma decision tree ini secara indpenden digabungkan (bagging) menghasilkan suatu prediksi. Dalam algortma ini, parameter n_estimator menunjukkan jumlah model decision tree yang akan digabungkan. max_depth menunjukkan kedalaman dari decision tree, nilai None menunjukkan bahwa kedalaman decision tree dalam model tersebut tidak terbatas.
+Algoritma Random forest menggunakan beberapa model <b>decision tree</b> (pengambilan keputusan berdasarkan kondisional) yang independen dan digabung menjadi satu kesatuan (bagging). <b>Algoritma decision tree</b> memprediksi suatu hasil berdasarkan kondisi-kondisi fitur. Model dengan algoritma ini memprediksi berdasarkan pendekatan if-else dari kondisi fitur dalam data training dalam membuat aturan dalam model. Algoritma decision tree ini secara indpenden digabungkan <b>(bagging)</b> menghasilkan suatu prediksi. Dalam algortma ini, parameter n_estimator menunjukkan jumlah model decision tree yang akan digabungkan. max_depth menunjukkan kedalaman dari decision tree, nilai None menunjukkan bahwa kedalaman decision tree dalam model tersebut tidak terbatas.
 """
 
 from sklearn.ensemble import RandomForestClassifier

@@ -105,11 +105,13 @@ Variabel Satisfaction merupakan target dalam proyek ini. Hasil penghilangan penc
 <img width="727" alt="StandardScaling" src="https://github.com/user-attachments/assets/d12795c3-39b7-48bc-b343-55d9b1c6943a">
 
 ## Modeling
-Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 7 metode berikut ini:
+Setelah data siap diproses lebih lanjut, maka akan dilanjutkan pada memilih metode terbaik untuk dapat memprediksi cuaca seakurat mungkin dengan bereksperimen menggunakan 3 metode berikut ini:
 
-| Nama | Kelebihan | Kekurangan |
-| --- | ----- | ------ |
-| K Nearest Neighbors	 | sederhana, adaptif, fleksibel dengan metrik yang bervariasi | sensitif dengan jumlah n tetangga dan fitur yang irelevan, bias terhadap kelas mayoritas, dan sulit dengan dimensi yang tinggi  |
+| Nama | Cara Kerja | Kelebihan | Kekurangan |
+| --- | ----- | ------ | ------ |
+| K Nearest Neighbors	 | <h3>K-Nearest Neighbor(KNN)</h3>
+<p>Algoritma KNN membandingkan jarak satu sampel data ke sampel data pelatihan lain dengan memilih sejumlah k tetangga terdekat untuk memprediksi variabel objek. </p>
+<p>Parameter utama dalam algoritma ini adalah n_neighbors, yaitu jumlah tetangga yang akan dibandingkan untuk mengklasifikasikan hasil prediksi.</p>|sederhana, adaptif, fleksibel dengan metrik yang bervariasi | sensitif dengan jumlah n tetangga dan fitur yang irelevan, bias terhadap kelas mayoritas, dan sulit dengan dimensi yang tinggi  |
 | Random Forest | Akurat, model toleran dengan overfitting dan outliers, dan dapat menampung data yang besar  | Membutuhkan banyak memori karena menghasilkan banyak decision tree |
 | Ada Boost | sederhana, adaptif, toleran terhadap overfitting  | sensitif terhadap noise dan outliers karena mempengaruhi pemberian bobot yang tidak sesuai pada iterasi berikutnya| 
 
